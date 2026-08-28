@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه دیزلن قرمز - پیشرفته</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0a0000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-image: radial-gradient(circle at 20% 50%, #1a0000 0%, #0a0000 100%);
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a0000; }
+        ::-webkit-scrollbar-thumb { background: #ff3333; border-radius: 10px; }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            background: linear-gradient(145deg, #1a0000, #2d0000);
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 20px 60px rgba(255, 0, 0, 0.25), inset 0 0 50px rgba(255, 0, 0, 0.05);
+            border: 1px solid rgba(255, 50, 50, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(255, 0, 0, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(40, 0, 0, 0.7);
+            border-radius: 20px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 50, 50, 0.12);
+            flex-wrap: wrap;
+            gap: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ff3333, #ff6666, #ff3333);
+            background-size: 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s ease-in-out infinite;
+            letter-spacing: 2px;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .logo span { font-weight: 300; color: #ff4444; -webkit-text-fill-color: #ff4444; }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .user-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 0, 0, 0.12);
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 50, 50, 0.15);
+        }
+
+        .user-badge .avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff2222, #cc0000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .user-badge .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-badge .user-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ff8888;
+        }
+
+        .user-badge .user-role {
+            font-size: 11px;
+            color: #ff6666;
+            opacity: 0.7;
+        }
+
+        .btn {
+            padding: 10px 28px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 14px;
+            background: linear-gradient(135deg, #ff2222, #cc0000);
+            color: white;
+            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover::after { opacity: 1; }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(255, 0, 0, 0.5);
+            background: linear-gradient(135deg, #ff4444, #dd0000);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #ff3333;
+            color: #ff6666;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: #ff3333;
+            color: #fff;
+            box-shadow: 0 8px 35px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #cc0000, #880000);
+            box-shadow: 0 4px 20px rgba(200, 0, 0, 0.3);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #00cc66, #00994d);
+            box-shadow: 0 4px 20px rgba(0, 200, 100, 0.3);
+        }
+
+        .btn-sm {
+            padding: 6px 16px;
+            font-size: 12px;
+        }
+
+        /* ===== TABS ===== */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            padding: 0 5px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tab-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            background: rgba(255, 0, 0, 0.06);
+            color: #ff6666;
+            border: 1px solid rgba(255, 50, 50, 0.08);
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            position: relative;
+        }
+
+        .tab-btn .badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff2222;
+            color: #fff;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #ff2222, #cc0000);
+            color: white;
+            box-shadow: 0 4px 30px rgba(255, 0, 0, 0.4);
+            border-color: #ff3333;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: rgba(255, 0, 0, 0.15);
+            border-color: rgba(255, 50, 50, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* ===== PANELS ===== */
+        .panel {
+            display: none;
+            animation: fadeSlide 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .panel.active { display: block; }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(20px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* ===== AUTH MODAL ===== */
+        .auth-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .auth-overlay.active { display: flex; }
+
+        .auth-modal {
+            background: linear-gradient(145deg, #1a0000, #2d0000);
+            padding: 45px;
+            border-radius: 30px;
+            max-width: 450px;
+            width: 90%;
+            border: 1px solid rgba(255, 50, 50, 0.2);
+            box-shadow: 0 30px 80px rgba(255, 0, 0, 0.2);
+            animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .auth-modal h2 {
+            color: #ff6666;
+            font-size: 26px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .auth-modal p {
+            color: #ff8888;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .auth-modal .input-group {
+            margin-bottom: 18px;
+        }
+
+        .auth-modal label {
+            display: block;
+            color: #ff8888;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .auth-modal input {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 50, 50, 0.15);
+            background: rgba(40, 0, 0, 0.5);
+            color: #fff;
+            font-size: 15px;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .auth-modal input:focus {
+            border-color: #ff3333;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.15);
+            background: rgba(60, 0, 0, 0.5);
+        }
+
+        .auth-modal input::placeholder {
+            color: rgba(255, 100, 100, 0.3);
+        }
+
+        .auth-modal .btn {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .auth-modal .auth-switch {
+            text-align: center;
+            margin-top: 18px;
+            color: #ff8888;
+            font-size: 14px;
+        }
+
+        .auth-modal .auth-switch a {
+            color: #ff4444;
+            cursor: pointer;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .auth-modal .auth-switch a:hover { color: #ff6666; }
+
+        /* ===== PRODUCTS ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            padding: 5px 0;
+        }
+
+        .product-card {
+            background: rgba(40, 0, 0, 0.6);
+            border-radius: 20px;
+            padding: 22px 18px;
+            text-align: center;
+            border: 1px solid rgba(255, 50, 50, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .product-card:hover::before { opacity: 1; }
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 50, 50, 0.3);
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 170px;
+            background: linear-gradient(135deg, #2a0000, #3d0000);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+            border: 1px solid rgba(255, 50, 50, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .product-image { transform: scale(1.05); }
+
+        .product-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #ff9999;
+            margin-bottom: 6px;
+        }
+
+        .product-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ff4444;
+            margin-bottom: 14px;
+        }
+
+        .product-price span {
+            font-size: 13px;
+            color: #ff6666;
+            font-weight: 400;
+        }
+
+        .product-stock {
+            font-size: 12px;
+            color: #ff8888;
+            margin-bottom: 12px;
+        }
+
+        .product-stock .in-stock { color: #66ff66; }
+        .product-stock .out-stock { color: #ff4444; }
+
+        /* ===== ADMIN ===== */
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(40, 0, 0, 0.6);
+            padding: 22px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 50, 50, 0.08);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: rgba(255, 50, 50, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-size: 34px;
+            font-weight: 700;
+            color: #ff4444;
+        }
+
+        .stat-label {
+            color: #ff8888;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .admin-table-wrap {
+            overflow-x: auto;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 50, 50, 0.08);
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(30, 0, 0, 0.4);
+            min-width: 500px;
+        }
+
+        .admin-table th {
+            background: rgba(60, 0, 0, 0.5);
+            color: #ff6666;
+            padding: 14px 18px;
+            text-align: right;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(255, 50, 50, 0.1);
+        }
+
+        .admin-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(255, 50, 50, 0.04);
+            color: #ffaaaa;
+        }
+
+        .admin-table tr:hover td {
+            background: rgba(255, 0, 0, 0.04);
+        }
+
+        .admin-table .actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            background: rgba(255, 50, 50, 0.15);
+            color: #ff6666;
+            border: 1px solid rgba(255, 50, 50, 0.1);
+        }
+
+        .status-badge.success {
+            background: rgba(0, 200, 0, 0.12);
+            color: #66ff66;
+            border-color: rgba(0, 200, 0, 0.15);
+        }
+
+        /* ===== CART ===== */
+        .cart-container {
+            background: rgba(30, 0, 0, 0.6);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 50, 50, 0.08);
+            backdrop-filter: blur(5px);
+        }
+
+        .cart-container h3 {
+            color: #ff6666;
+            margin-bottom: 18px;
+            font-size: 22px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 50, 50, 0.06);
+            color: #ffaaaa;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cart-item .item-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-item .item-info .icon { font-size: 28px; }
+
+        .cart-item .item-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-item .item-actions .qty-btn {
+            background: rgba(255, 0, 0, 0.15);
+            border: none;
+            color: #ff6666;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+
+        .cart-item .item-actions .qty-btn:hover {
+            background: #ff3333;
+            color: #fff;
+        }
+
+        .cart-item .item-actions .qty {
+            font-weight: 600;
+            color: #ff8888;
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 0 10px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff6666;
+            border-top: 2px solid rgba(255, 50, 50, 0.15);
+            margin-top: 10px;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: #ff8888;
+        }
+
+        .cart-empty .big-icon { font-size: 60px; display: block; margin-bottom: 15px; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .header { flex-direction: column; text-align: center; padding: 15px; }
+            .header-left { width: 100%; justify-content: center; }
+            .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
+            .tab-btn { min-width: 80px; padding: 10px 16px; font-size: 13px; }
+            .auth-modal { padding: 30px 20px; }
+            .admin-stats { grid-template-columns: repeat(2, 1fr); }
+            .cart-item { flex-direction: column; align-items: stretch; }
+            .cart-item .item-actions { justify-content: space-between; }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .product-card { padding: 14px 10px; }
+            .product-image { height: 120px; font-size: 40px; }
+            .product-title { font-size: 14px; }
+            .product-price { font-size: 17px; }
+        }
+
+        /* ===== TOAST ===== */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #1a0000, #2d0000);
+            padding: 16px 28px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 50, 50, 0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            color: #ffaaaa;
+            font-weight: 500;
+            z-index: 2000;
+            transform: translateX(120%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast .toast-icon { margin-left: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== TOAST ===== -->
+    <div id="toast" class="toast"></div>
+
+    <!-- ===== AUTH OVERLAY ===== -->
+    <div id="authOverlay" class="auth-overlay">
+        <div class="auth-modal">
+            <h2 id="authTitle">🔐 ورود / ثبت نام</h2>
+            <p id="authSubtitle">برای ادامه وارد شوید یا ثبت نام کنید</p>
+            <form id="authForm" onsubmit="handleAuth(event)">
+                <div class="input-group">
+                    <label>👤 نام کاربری</label>
+                    <input type="text" id="authUsername" placeholder="نام کاربری خود را وارد کنید" required>
+                </div>
+                <div class="input-group" id="authEmailGroup" style="display:none;">
+                    <label>📧 ایمیل</label>
+                    <input type="email" id="authEmail" placeholder="ایمیل خود را وارد کنید">
+                </div>
+                <div class="input-group">
+                    <label>🔑 رمز عبور</label>
+                    <input type="password" id="authPassword" placeholder="رمز عبور را وارد کنید" required>
+                </div>
+                <button type="submit" class="btn" id="authSubmitBtn">ورود</button>
+                <div class="auth-switch">
+                    <span id="authSwitchText">حساب کاربری ندارید؟</span>
+                    <a id="authSwitchLink" onclick="toggleAuthMode()">ثبت نام</a>
+                </div>
+                <div class="auth-switch" style="margin-top:8px;font-size:12px;opacity:0.5;">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTAINER ===== -->
+    <div class="container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="logo">🔥 دیزلن <span>قرمز</span></div>
+            <div class="header-left">
+                <div class="user-badge">
+                    <div class="avatar" id="userAvatar">👤</div>
+                    <div class="user-info">
+                        <span class="user-name" id="userName">مهمان</span>
+                        <span class="user-role" id="userRole">کاربر</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline btn-sm" id="authToggleBtn" onclick="openAuth()">ورود / ثبت نام</button>
+                <button class="btn btn-danger btn-sm" id="logoutBtn" onclick="logout()" style="display:none;">خروج</button>
+            </div>
+        </header>
+
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="userPanel">🛒 فروشگاه</button>
+            <button class="tab-btn" data-tab="adminPanel" id="adminTabBtn">⚙️ مدیریت</button>
+            <button class="tab-btn" data-tab="cartPanel">🛍️ سبد خرید <span class="badge" id="cartBadge">0</span></button>
+        </div>
+
+        <!-- USER PANEL -->
+        <div id="userPanel" class="panel active">
+            <div class="products-grid" id="productGrid"></div>
+        </div>
+
+        <!-- ADMIN PANEL -->
+        <div id="adminPanel" class="panel">
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalProducts">0</div>
+                    <div class="stat-label">📦 محصولات</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalOrders">0</div>
+                    <div class="stat-label">📋 سفارشات</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalRevenue">0</div>
+                    <div class="stat-label">💰 فروش (تومان)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalUsers">0</div>
+                    <div class="stat-label">👥 کاربران</div>
+                </div>
+            </div>
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>محصول</th>
+                            <th>قیمت</th>
+                            <th>موجودی</th>
+                            <th>وضعیت</th>
+                            <th>عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- CART PANEL -->
+        <div id="cartPanel" class="panel">
+            <div class="cart-container">
+                <h3>🛍️ سبد خرید</h3>
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <span>جمع کل:</span>
+                    <span id="cartTotalPrice">۰ تومان</span>
+                </div>
+                <button class="btn btn-success" style="width:100%;margin-top:15px;" onclick="checkout()">
+                    ✅ پرداخت و ثبت سفارش
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        //  DATA
+        // ============================================================
+        let products = [
+            { id: 1, name: "کیف چرم قرمز", price: 250000, stock: 12, image: "👛" },
+            { id: 2, name: "کفش اسپرت قرمز", price: 380000, stock: 8, image: "👟" },
+            { id: 3, name: "ساعت دیجیتال قرمز", price: 450000, stock: 5, image: "⌚" },
+            { id: 4, name: "هدفون بی‌سیم قرمز", price: 320000, stock: 15, image: "🎧" },
+            { id: 5, name: "کیس کامپیوتر قرمز", price: 890000, stock: 3, image: "🖥️" },
+            { id: 6, name: "مبل راحتی قرمز", price: 1250000, stock: 2, image: "🛋️" },
+            { id: 7, name: "گوشی موبایل قرمز", price: 780000, stock: 7, image: "📱" },
+            { id: 8, name: "هدفون گیمینگ قرمز", price: 560000, stock: 4, image: "🎮" },
+        ];
+
+        // ============================================================
+        //  STATE
+        // ============================================================
+        let cart = [];
+        let currentUser = null; // { username, role }
+        let isAuthMode = 'login'; // 'login' | 'register'
+        let users = JSON.parse(localStorage.getItem('redshop_users')) || [];
+        let orders = JSON.parse(localStorage.getItem('redshop_orders')) || [];
+
+        // ============================================================
+        //  DOM REFS
+        // ============================================================
+        const $ = id => document.getElementById(id);
+        const productGrid = $('productGrid');
+        const adminTableBody = $('adminTableBody');
+        const cartItems = $('cartItems');
+        const cartTotalPrice = $('cartTotalPrice');
+        const cartBadge = $('cartBadge');
+        const userName = $('userName');
+        const userRole = $('userRole');
+        const userAvatar = $('userAvatar');
+        const authToggleBtn = $('authToggleBtn');
+        const logoutBtn = $('logoutBtn');
+        const authOverlay = $('authOverlay');
+        const authTitle = $('authTitle');
+        const authSubtitle = $('authSubtitle');
+        const authUsername = $('authUsername');
+        const authPassword = $('authPassword');
+        const authEmail = $('authEmail');
+        const authEmailGroup = $('authEmailGroup');
+        const authSubmitBtn = $('authSubmitBtn');
+        const authSwitchText = $('authSwitchText');
+        const authSwitchLink = $('authSwitchLink');
+        const adminTabBtn = $('adminTabBtn');
+        const toast = $('toast');
+
+        // ============================================================
+        //  TOAST
+        // ============================================================
+        let toastTimeout;
+
+        function showToast(message, icon = '✅') {
+            toast.innerHTML = `<span class="toast-icon">${icon}</span> ${message}`;
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+
+        // ============================================================
+        //  AUTH
+        // ============================================================
+        function openAuth() {
+            authOverlay.classList.add('active');
+            authUsername.value = '';
+            authPassword.value = '';
+            authEmail.value = '';
+            setAuthMode('login');
+        }
+
+        function closeAuth() {
+            authOverlay.classList.remove('active');
+        }
+
+        function toggleAuthMode() {
+            setAuthMode(isAuthMode === 'login' ? 'register' : 'login');
+        }
+
+        function setAuthMode(mode) {
+            isAuthMode = mode;
+            if (mode === 'login') {
+                authTitle.textContent = '🔐 ورود به حساب';
+                authSubtitle.textContent = 'خوش آمدید! لطفاً وارد شوید';
+                authSubmitBtn.textContent = 'ورود';
+                authSwitchText.textContent = 'حساب کاربری ندارید؟';
+                authSwitchLink.textContent = 'ثبت نام';
+                authEmailGroup.style.display = 'none';
+            } else {
+                authTitle.textContent = '📝 ثبت نام جدید';
+                authSubtitle.textContent = 'همین الان عضو شوید!';
+                authSubmitBtn.textContent = 'ثبت نام';
+                authSwitchText.textContent = 'قبلاً ثبت نام کرده‌اید؟';
+                authSwitchLink.textContent = 'ورود';
+                authEmailGroup.style.display = 'block';
+            }
+        }
+
+        function handleAuth(e) {
+            e.preventDefault();
+            const username = authUsername.value.trim();
+            const password = authPassword.value.trim();
+            const email = authEmail.value.trim();
+
+            if (!username || !password) {
+                showToast('لطفاً همه فیلدها را پر کنید!', '⚠️');
+                return;
+            }
+
+            if (isAuthMode === 'register') {
+                if (!email) {
+                    showToast('لطفاً ایمیل را وارد کنید!', '⚠️');
+                    return;
+                }
+                if (users.find(u => u.username === username)) {
+                    showToast('این نام کاربری قبلاً ثبت شده!', '❌');
+                    return;
+                }
+                // Check if trying to register as admin
+                let role = 'user';
+                if (password === 'amirali') role = 'admin';
+                users.push({ username, password, email, role });
+                localStorage.setItem('redshop_users', JSON.stringify(users));
+                showToast('ثبت نام با موفقیت انجام شد! 🎉', '✅');
+                setAuthMode('login');
+                authUsername.value = '';
+                authPassword.value = '';
+                authEmail.value = '';
+                return;
+            }
+
+            // LOGIN
+            const user = users.find(u => u.username === username && u.password === password);
+            if (!user) {
+                // Check for admin hardcoded
+                if (username === 'admin' && password === 'amirali') {
+                    const adminUser = { username: 'admin', role: 'admin', password: 'amirali' };
+                    if (!users.find(u => u.username === 'admin')) {
+                        users.push(adminUser);
+                        localStorage.setItem('redshop_users', JSON.stringify(users));
+                    }
+                    loginUser(adminUser);
+                    return;
+                }
+                showToast('نام کاربری یا رمز عبور اشتباه است!', '❌');
+                return;
+            }
+            loginUser(user);
+        }
+
+        function loginUser(user) {
+            currentUser = user;
+            closeAuth();
+            updateUI();
+            showToast(`خوش آمدید ${user.username} 👋`, '👋');
+            // If admin, switch to admin tab
+            if (user.role === 'admin') {
+                document.querySelector('[data-tab="adminPanel"]').click();
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            updateUI();
+            showToast('با موفقیت خارج شدید', '👋');
+            document.querySelector('[data-tab="userPanel"]').click();
+        }
+
+        function updateUI() {
+            if (currentUser) {
+                userName.textContent = currentUser.username;
+                userRole.textContent = currentUser.role === 'admin' ? 'مدیر' : 'کاربر';
+                userAvatar.textContent = currentUser.role === 'admin' ? '👑' : '👤';
+                authToggleBtn.style.display = 'none';
+                logoutBtn.style.display = 'inline-block';
+                // Show admin tab if admin
+                if (currentUser.role === 'admin') {
+                    adminTabBtn.style.display = 'inline-block';
+                } else {
+                    adminTabBtn.style.display = 'none';
+                    // If admin tab is active, switch to user
+                    if (document.querySelector('[data-tab="adminPanel"]').classList.contains('active')) {
+                        document.querySelector('[data-tab="userPanel"]').click();
+                    }
+                }
+            } else {
+                userName.textContent = 'مهمان';
+                userRole.textContent = 'کاربر';
+                userAvatar.textContent = '👤';
+                authToggleBtn.style.display = 'inline-block';
+                logoutBtn.style.display = 'none';
+                adminTabBtn.style.display = 'none';
+            }
+            renderAll();
+        }
+
+        // ============================================================
+        //  RENDER
+        // ============================================================
+        function renderAll() {
+            renderProducts();
+            renderAdminTable();
+            renderCart();
+            updateCartBadge();
+            updateStats();
+        }
+
+        function renderProducts() {
+            productGrid.innerHTML = products.map(p => `
+                <div class="product-card">
+                    <div class="product-image">${p.image}</div>
+                    <div class="product-title">${p.name}</div>
+                    <div class="product-price">${p.price.toLocaleString()} <span>تومان</span></div>
+                    <div class="product-stock">
+                        ${p.stock > 0 
+                            ? `<span class="in-stock">✅ موجود (${p.stock} عدد)</span>` 
+                            : `<span class="out-stock">❌ ناموجود</span>`}
+                    </div>
+                    <button class="btn btn-sm" onclick="addToCart(${p.id})" ${p.stock <= 0 ? 'disabled style="opacity:0.4;cursor:not-allowed;"' : ''}>
+                        ➕ افزودن به سبد
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function renderAdminTable() {
+            adminTableBody.innerHTML = products.map(p => `
+                <tr>
+                    <td>${p.image} ${p.name}</td>
+                    <td>${p.price.toLocaleString()} تومان</td>
+                    <td>${p.stock}</td>
+                    <td><span class="status-badge ${p.stock > 0 ? 'success' : ''}">${p.stock > 0 ? 'موجود' : 'ناموجود'}</span></td>
+                    <td class="actions">
+                        <button class="btn btn-sm btn-outline" onclick="editStock(${p.id})">✏️ ویرایش</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteProduct(${p.id})">🗑️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function renderCart() {
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="cart-empty">
+                        <span class="big-icon">🛒</span>
+                        <p>سبد خرید شما خالی است</p>
+                        <p style="font-size:13px;opacity:0.6;">محصولات مورد نظر را به سبد اضافه کنید</p>
+                    </div>
+                `;
+                cartTotalPrice.textContent = '۰ تومان';
+                return;
+            }
+
+            // Group by id
+            const grouped = {};
+            cart.forEach(item => {
+                if (grouped[item.id]) {
+                    grouped[item.id].qty++;
+                } else {
+                    grouped[item.id] = { ...item, qty: 1 };
+                }
+            });
+
+            const itemsHtml = Object.values(grouped).map((item, idx) => `
+                <div class="cart-item">
+                    <div class="item-info">
+                        <span class="icon">${item.image}</span>
+                        <span>${item.name}</span>
+                    </div>
+                    <div class="item-actions">
+                        <span>${(item.price * item.qty).toLocaleString()} تومان</span>
+                        <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+                        <span class="qty">${item.qty}</span>
+                        <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+                        <button class="qty-btn" style="color:#ff4444;" onclick="removeItem(${item.id})">✕</button>
+                    </div>
+                </div>
+            `).join('');
+
+            cartItems.innerHTML = itemsHtml;
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            cartTotalPrice.textContent = total.toLocaleString() + ' تومان';
+        }
+
+        function updateCartBadge() {
+            cartBadge.textContent = cart.length;
+        }
+
+        function updateStats() {
+            document.getElementById('totalProducts').textContent = products.length;
+            document.getElementById('totalOrders').textContent = orders.length || Math.floor(Math.random() * 30) + 5;
+            document.getElementById('totalRevenue').textContent = (Math.floor(Math.random() * 900) + 100).toLocaleString();
+            document.getElementById('totalUsers').textContent = users.length || 0;
+        }
+
+        // ============================================================
+        //  CART ACTIONS
+        // ============================================================
+        function addToCart(productId) {
+            if (!currentUser) {
+                showToast('لطفاً ابتدا وارد شوید!', '🔐');
+                openAuth();
+                return;
+            }
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            if (product.stock <= 0) {
+                showToast('این محصول موجود نیست!', '❌');
+                return;
+            }
+            cart.push({ ...product });
+            product.stock--;
+            renderAll();
+            showToast(`${product.name} به سبد اضافه شد`, '🛒');
+        }
+
+        function changeQty(productId, delta) {
+            const index = cart.findIndex(item => item.id === productId);
+            if (index === -1) return;
+            if (delta > 0) {
+                const product = products.find(p => p.id === productId);
+                if (product.stock <= 0) {
+                    showToast('موجودی کافی نیست!', '❌');
+                    return;
+                }
+                cart.push({ ...product });
+                product.stock--;
+            } else {
+                const removed = cart.splice(index, 1)[0];
+                const product = products.find(p => p.id === removed.id);
+                if (product) product.stock++;
+            }
+            renderAll();
+        }
+
+        function removeItem(productId) {
+            const indices = cart.map((item, i) => item.id === productId ? i : -1).filter(i => i >= 0);
+            indices.reverse().forEach(i => {
+                const removed = cart.splice(i, 1)[0];
+                const product = products.find(p => p.id === removed.id);
+                if (product) product.stock++;
+            });
+            renderAll();
+            showToast('محصول از سبد حذف شد', '🗑️');
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showToast('سبد خرید خالی است!', '⚠️');
+                return;
+            }
+            if (!currentUser) {
+                showToast('لطفاً ابتدا وارد شوید!', '🔐');
+                openAuth();
+                return;
+            }
+            const total = cart.reduce((sum, i) => sum + i.price, 0);
+            const order = {
+                id: Date.now(),
+                user: currentUser.username,
+                items: [...cart],
+                total: total,
+                date: new Date().toLocaleDateString('fa-IR'),
+                status: 'پرداخت شده'
+            };
+            orders.push(order);
+            localStorage.setItem('redshop_orders', JSON.stringify(orders));
+            cart = [];
+            renderAll();
+            showToast(`✅ سفارش شما ثبت شد! مبلغ: ${total.toLocaleString()} تومان`, '✅');
+        }
+
+        // ============================================================
+        //  ADMIN ACTIONS
+        // ============================================================
+        function editStock(productId) {
+            if (!currentUser || currentUser.role !== 'admin') {
+                showToast('دسترسی غیرمجاز!', '⛔');
+                return;
+            }
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            const newStock = prompt(`موجودی جدید برای "${product.name}":`, product.stock);
+            if (newStock !== null && !isNaN(newStock) && parseInt(newStock) >= 0) {
+                product.stock = parseInt(newStock);
+                renderAll();
+                showToast('موجودی به‌روز شد', '✅');
+            }
+        }
+
+        function deleteProduct(productId) {
+            if (!currentUser || currentUser.role !== 'admin') {
+                showToast('دسترسی غیرمجاز!', '⛔');
+                return;
+            }
+            if (!confirm('آیا از حذف این محصول مطمئن هستید؟')) return;
+            const index = products.findIndex(p => p.id === productId);
+            if (index > -1) {
+                // Remove from cart if exists
+                cart = cart.filter(item => item.id !== productId);
+                products.splice(index, 1);
+                renderAll();
+                showToast('محصول حذف شد', '🗑️');
+            }
+        }
+
+        // ============================================================
+        //  TAB SYSTEM
+        // ============================================================
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Check admin access
+                if (this.dataset.tab === 'adminPanel' && (!currentUser || currentUser.role !== 'admin')) {
+                    showToast('دسترسی غیرمجاز! رمز مدیریت: amirali', '⛔');
+                    openAuth();
+                    return;
+                }
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+                document.getElementById(this.dataset.tab).classList.add('active');
+            });
+        });
+
+        // ============================================================
+        //  CLOSE AUTH ON OVERLAY CLICK
+        // ============================================================
+        authOverlay.addEventListener('click', function(e) {
+            if (e.target === this) closeAuth();
+        });
+
+        // ============================================================
+        //  KEYBOARD SHORTCUT: Escape to close auth
+        // ============================================================
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeAuth();
+        });
+
+        // ============================================================
+        //  INIT
+        // ============================================================
+        // Check if admin exists in users, if not create
+        if (!users.find(u => u.username === 'admin')) {
+            users.push({ username: 'admin', password: 'amirali', email: 'admin@shop.com', role: 'admin' });
+            localStorage.setItem('redshop_users', JSON.stringify(users));
+        }
+        renderAll();
+        updateUI();
+        showToast('🔥 به فروشگاه دیزلن قرمز خوش آمدید!', '🔥');
+    </script>
+
+</body>
+</html>
