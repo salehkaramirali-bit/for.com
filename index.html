@@ -25,9 +25,16 @@
         }
 
         /* ===== SCROLLBAR ===== */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1a0000; }
-        ::-webkit-scrollbar-thumb { background: #ff3333; border-radius: 10px; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a0000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff3333;
+            border-radius: 10px;
+        }
 
         /* ===== CONTAINER ===== */
         .container {
@@ -82,11 +89,20 @@
         }
 
         @keyframes shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
-        .logo span { font-weight: 300; color: #ff4444; -webkit-text-fill-color: #ff4444; }
+        .logo span {
+            font-weight: 300;
+            color: #ff4444;
+            -webkit-text-fill-color: #ff4444;
+        }
 
         .header-left {
             display: flex;
@@ -157,12 +173,14 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
             opacity: 0;
             transition: opacity 0.3s;
         }
 
-        .btn:hover::after { opacity: 1; }
+        .btn:hover::after {
+            opacity: 1;
+        }
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 35px rgba(255, 0, 0, 0.5);
@@ -192,9 +210,19 @@
             box-shadow: 0 4px 20px rgba(0, 200, 100, 0.3);
         }
 
+        .btn-warning {
+            background: linear-gradient(135deg, #ff8800, #cc6600);
+            box-shadow: 0 4px 20px rgba(255, 136, 0, 0.3);
+        }
+
         .btn-sm {
             padding: 6px 16px;
             font-size: 12px;
+        }
+
+        .btn-lg {
+            padding: 14px 35px;
+            font-size: 16px;
         }
 
         /* ===== TABS ===== */
@@ -262,11 +290,19 @@
             z-index: 2;
         }
 
-        .panel.active { display: block; }
+        .panel.active {
+            display: block;
+        }
 
         @keyframes fadeSlide {
-            from { opacity: 0; transform: translateY(20px) scale(0.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         /* ===== AUTH MODAL ===== */
@@ -285,7 +321,9 @@
             animation: fadeIn 0.3s ease;
         }
 
-        .auth-overlay.active { display: flex; }
+        .auth-overlay.active {
+            display: flex;
+        }
 
         .auth-modal {
             background: linear-gradient(145deg, #1a0000, #2d0000);
@@ -299,13 +337,23 @@
         }
 
         @keyframes scaleIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         .auth-modal h2 {
@@ -377,7 +425,9 @@
             font-weight: 600;
         }
 
-        .auth-modal .auth-switch a:hover { color: #ff6666; }
+        .auth-modal .auth-switch a:hover {
+            color: #ff6666;
+        }
 
         /* ===== PRODUCTS ===== */
         .products-grid {
@@ -411,7 +461,9 @@
             transition: opacity 0.4s;
         }
 
-        .product-card:hover::before { opacity: 1; }
+        .product-card:hover::before {
+            opacity: 1;
+        }
         .product-card:hover {
             transform: translateY(-8px);
             border-color: rgba(255, 50, 50, 0.3);
@@ -432,7 +484,9 @@
             transition: transform 0.3s;
         }
 
-        .product-card:hover .product-image { transform: scale(1.05); }
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
 
         .product-title {
             font-size: 17px;
@@ -460,8 +514,12 @@
             margin-bottom: 12px;
         }
 
-        .product-stock .in-stock { color: #66ff66; }
-        .product-stock .out-stock { color: #ff4444; }
+        .product-stock .in-stock {
+            color: #66ff66;
+        }
+        .product-stock .out-stock {
+            color: #ff4444;
+        }
 
         /* ===== ADMIN ===== */
         .admin-stats {
@@ -502,13 +560,14 @@
             overflow-x: auto;
             border-radius: 20px;
             border: 1px solid rgba(255, 50, 50, 0.08);
+            margin-top: 20px;
         }
 
         .admin-table {
             width: 100%;
             border-collapse: collapse;
             background: rgba(30, 0, 0, 0.4);
-            min-width: 500px;
+            min-width: 600px;
         }
 
         .admin-table th {
@@ -552,6 +611,77 @@
             border-color: rgba(0, 200, 0, 0.15);
         }
 
+        /* ===== ADD PRODUCT FORM ===== */
+        .add-product-form {
+            background: rgba(40, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 25px 30px;
+            border: 1px solid rgba(255, 50, 50, 0.1);
+            margin-bottom: 25px;
+            backdrop-filter: blur(5px);
+        }
+
+        .add-product-form h3 {
+            color: #ff6666;
+            margin-bottom: 20px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            color: #ff8888;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 50, 50, 0.12);
+            background: rgba(20, 0, 0, 0.5);
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #ff3333;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+            background: rgba(40, 0, 0, 0.5);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 100, 100, 0.3);
+        }
+
+        .form-group select option {
+            background: #1a0000;
+            color: #fff;
+        }
+
+        .form-group .btn {
+            width: 100%;
+            padding: 12px;
+        }
+
         /* ===== CART ===== */
         .cart-container {
             background: rgba(30, 0, 0, 0.6);
@@ -584,7 +714,9 @@
             gap: 12px;
         }
 
-        .cart-item .item-info .icon { font-size: 28px; }
+        .cart-item .item-info .icon {
+            font-size: 28px;
+        }
 
         .cart-item .item-actions {
             display: flex;
@@ -634,27 +766,74 @@
             color: #ff8888;
         }
 
-        .cart-empty .big-icon { font-size: 60px; display: block; margin-bottom: 15px; }
+        .cart-empty .big-icon {
+            font-size: 60px;
+            display: block;
+            margin-bottom: 15px;
+        }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .container { padding: 15px; }
-            .header { flex-direction: column; text-align: center; padding: 15px; }
-            .header-left { width: 100%; justify-content: center; }
-            .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
-            .tab-btn { min-width: 80px; padding: 10px 16px; font-size: 13px; }
-            .auth-modal { padding: 30px 20px; }
-            .admin-stats { grid-template-columns: repeat(2, 1fr); }
-            .cart-item { flex-direction: column; align-items: stretch; }
-            .cart-item .item-actions { justify-content: space-between; }
+            .container {
+                padding: 15px;
+            }
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+            .header-left {
+                width: 100%;
+                justify-content: center;
+            }
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 15px;
+            }
+            .tab-btn {
+                min-width: 80px;
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+            .auth-modal {
+                padding: 30px 20px;
+            }
+            .admin-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cart-item {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .cart-item .item-actions {
+                justify-content: space-between;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .add-product-form {
+                padding: 20px 15px;
+            }
         }
 
         @media (max-width: 480px) {
-            .products-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .product-card { padding: 14px 10px; }
-            .product-image { height: 120px; font-size: 40px; }
-            .product-title { font-size: 14px; }
-            .product-price { font-size: 17px; }
+            .products-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .product-card {
+                padding: 14px 10px;
+            }
+            .product-image {
+                height: 120px;
+                font-size: 40px;
+            }
+            .product-title {
+                font-size: 14px;
+            }
+            .product-price {
+                font-size: 17px;
+            }
         }
 
         /* ===== TOAST ===== */
@@ -666,20 +845,23 @@
             padding: 16px 28px;
             border-radius: 15px;
             border: 1px solid rgba(255, 50, 50, 0.2);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
             color: #ffaaaa;
             font-weight: 500;
             z-index: 2000;
             transform: translateX(120%);
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
+            max-width: 90%;
         }
 
         .toast.show {
             transform: translateX(0);
         }
 
-        .toast .toast-icon { margin-left: 10px; }
+        .toast .toast-icon {
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -711,6 +893,7 @@
                     <a id="authSwitchLink" onclick="toggleAuthMode()">ثبت نام</a>
                 </div>
                 <div class="auth-switch" style="margin-top:8px;font-size:12px;opacity:0.5;">
+                    <span>مدیریت با رمز: amirali</span>
                 </div>
             </form>
         </div>
@@ -737,7 +920,7 @@
         <!-- TABS -->
         <div class="tabs">
             <button class="tab-btn active" data-tab="userPanel">🛒 فروشگاه</button>
-            <button class="tab-btn" data-tab="adminPanel" id="adminTabBtn">⚙️ مدیریت</button>
+            <button class="tab-btn" data-tab="adminPanel" id="adminTabBtn" style="display:none;">⚙️ مدیریت</button>
             <button class="tab-btn" data-tab="cartPanel">🛍️ سبد خرید <span class="badge" id="cartBadge">0</span></button>
         </div>
 
@@ -748,6 +931,7 @@
 
         <!-- ADMIN PANEL -->
         <div id="adminPanel" class="panel">
+            <!-- Stats -->
             <div class="admin-stats">
                 <div class="stat-card">
                     <div class="stat-number" id="totalProducts">0</div>
@@ -766,6 +950,36 @@
                     <div class="stat-label">👥 کاربران</div>
                 </div>
             </div>
+
+            <!-- Add Product Form -->
+            <div class="add-product-form">
+                <h3>➕ افزودن محصول جدید</h3>
+                <form id="addProductForm" onsubmit="addProduct(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>📛 نام محصول</label>
+                            <input type="text" id="newProductName" placeholder="مثلاً: هدفون قرمز" required>
+                        </div>
+                        <div class="form-group">
+                            <label>💰 قیمت (تومان)</label>
+                            <input type="number" id="newProductPrice" placeholder="مثلاً: 350000" required>
+                        </div>
+                        <div class="form-group">
+                            <label>📦 موجودی</label>
+                            <input type="number" id="newProductStock" placeholder="مثلاً: 10" required>
+                        </div>
+                        <div class="form-group">
+                            <label>🎨 آیکون (اموجی)</label>
+                            <input type="text" id="newProductIcon" placeholder="مثلاً: 🎧" value="📦">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-lg">➕ افزودن محصول</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Products Table -->
             <div class="admin-table-wrap">
                 <table class="admin-table">
                     <thead>
@@ -812,13 +1026,14 @@
             { id: 7, name: "گوشی موبایل قرمز", price: 780000, stock: 7, image: "📱" },
             { id: 8, name: "هدفون گیمینگ قرمز", price: 560000, stock: 4, image: "🎮" },
         ];
+        let nextId = 9;
 
         // ============================================================
         //  STATE
         // ============================================================
         let cart = [];
-        let currentUser = null; // { username, role }
-        let isAuthMode = 'login'; // 'login' | 'register'
+        let currentUser = null;
+        let isAuthMode = 'login';
         let users = JSON.parse(localStorage.getItem('redshop_users')) || [];
         let orders = JSON.parse(localStorage.getItem('redshop_orders')) || [];
 
@@ -848,6 +1063,12 @@
         const authSwitchLink = $('authSwitchLink');
         const adminTabBtn = $('adminTabBtn');
         const toast = $('toast');
+
+        // Form refs
+        const newProductName = $('newProductName');
+        const newProductPrice = $('newProductPrice');
+        const newProductStock = $('newProductStock');
+        const newProductIcon = $('newProductIcon');
 
         // ============================================================
         //  TOAST
@@ -919,7 +1140,6 @@
                     showToast('این نام کاربری قبلاً ثبت شده!', '❌');
                     return;
                 }
-                // Check if trying to register as admin
                 let role = 'user';
                 if (password === 'amirali') role = 'admin';
                 users.push({ username, password, email, role });
@@ -935,7 +1155,6 @@
             // LOGIN
             const user = users.find(u => u.username === username && u.password === password);
             if (!user) {
-                // Check for admin hardcoded
                 if (username === 'admin' && password === 'amirali') {
                     const adminUser = { username: 'admin', role: 'admin', password: 'amirali' };
                     if (!users.find(u => u.username === 'admin')) {
@@ -956,7 +1175,6 @@
             closeAuth();
             updateUI();
             showToast(`خوش آمدید ${user.username} 👋`, '👋');
-            // If admin, switch to admin tab
             if (user.role === 'admin') {
                 document.querySelector('[data-tab="adminPanel"]').click();
             }
@@ -976,12 +1194,10 @@
                 userAvatar.textContent = currentUser.role === 'admin' ? '👑' : '👤';
                 authToggleBtn.style.display = 'none';
                 logoutBtn.style.display = 'inline-block';
-                // Show admin tab if admin
                 if (currentUser.role === 'admin') {
                     adminTabBtn.style.display = 'inline-block';
                 } else {
                     adminTabBtn.style.display = 'none';
-                    // If admin tab is active, switch to user
                     if (document.querySelector('[data-tab="adminPanel"]').classList.contains('active')) {
                         document.querySelector('[data-tab="userPanel"]').click();
                     }
@@ -1034,8 +1250,8 @@
                     <td>${p.stock}</td>
                     <td><span class="status-badge ${p.stock > 0 ? 'success' : ''}">${p.stock > 0 ? 'موجود' : 'ناموجود'}</span></td>
                     <td class="actions">
-                        <button class="btn btn-sm btn-outline" onclick="editStock(${p.id})">✏️ ویرایش</button>
-                        <button class="btn btn-sm btn-danger" onclick="deleteProduct(${p.id})">🗑️</button>
+                        <button class="btn btn-sm btn-warning" onclick="editProduct(${p.id})">✏️ ویرایش</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteProduct(${p.id})">🗑️ حذف</button>
                     </td>
                 </tr>
             `).join('');
@@ -1054,7 +1270,6 @@
                 return;
             }
 
-            // Group by id
             const grouped = {};
             cart.forEach(item => {
                 if (grouped[item.id]) {
@@ -1064,7 +1279,7 @@
                 }
             });
 
-            const itemsHtml = Object.values(grouped).map((item, idx) => `
+            const itemsHtml = Object.values(grouped).map((item) => `
                 <div class="cart-item">
                     <div class="item-info">
                         <span class="icon">${item.image}</span>
@@ -1094,6 +1309,86 @@
             document.getElementById('totalOrders').textContent = orders.length || Math.floor(Math.random() * 30) + 5;
             document.getElementById('totalRevenue').textContent = (Math.floor(Math.random() * 900) + 100).toLocaleString();
             document.getElementById('totalUsers').textContent = users.length || 0;
+        }
+
+        // ============================================================
+        //  PRODUCT CRUD
+        // ============================================================
+        function addProduct(e) {
+            e.preventDefault();
+            if (!currentUser || currentUser.role !== 'admin') {
+                showToast('دسترسی غیرمجاز!', '⛔');
+                return;
+            }
+
+            const name = newProductName.value.trim();
+            const price = parseInt(newProductPrice.value);
+            const stock = parseInt(newProductStock.value);
+            const image = newProductIcon.value.trim() || '📦';
+
+            if (!name || !price || price <= 0 || stock < 0) {
+                showToast('لطفاً اطلاعات را به درستی وارد کنید!', '⚠️');
+                return;
+            }
+
+            const newProduct = {
+                id: nextId++,
+                name: name,
+                price: price,
+                stock: stock,
+                image: image
+            };
+
+            products.push(newProduct);
+            newProductName.value = '';
+            newProductPrice.value = '';
+            newProductStock.value = '';
+            newProductIcon.value = '📦';
+
+            renderAll();
+            showToast(`محصول "${name}" با موفقیت اضافه شد! 🎉`, '✅');
+        }
+
+        function editProduct(productId) {
+            if (!currentUser || currentUser.role !== 'admin') {
+                showToast('دسترسی غیرمجاز!', '⛔');
+                return;
+            }
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const newName = prompt('نام جدید:', product.name);
+            if (newName !== null && newName.trim()) product.name = newName.trim();
+
+            const newPrice = prompt('قیمت جدید (تومان):', product.price);
+            if (newPrice !== null && !isNaN(newPrice) && parseInt(newPrice) > 0) product.price = parseInt(newPrice);
+
+            const newStock = prompt('موجودی جدید:', product.stock);
+            if (newStock !== null && !isNaN(newStock) && parseInt(newStock) >= 0) product.stock = parseInt(newStock);
+
+            const newIcon = prompt('آیکون جدید (اموجی):', product.image);
+            if (newIcon !== null && newIcon.trim()) product.image = newIcon.trim();
+
+            renderAll();
+            showToast('محصول با موفقیت ویرایش شد!', '✏️');
+        }
+
+        function deleteProduct(productId) {
+            if (!currentUser || currentUser.role !== 'admin') {
+                showToast('دسترسی غیرمجاز!', '⛔');
+                return;
+            }
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            if (!confirm(`آیا از حذف "${product.name}" مطمئن هستید؟`)) return;
+
+            const index = products.findIndex(p => p.id === productId);
+            if (index > -1) {
+                cart = cart.filter(item => item.id !== productId);
+                products.splice(index, 1);
+                renderAll();
+                showToast(`محصول "${product.name}" حذف شد`, '🗑️');
+            }
         }
 
         // ============================================================
@@ -1174,45 +1469,10 @@
         }
 
         // ============================================================
-        //  ADMIN ACTIONS
-        // ============================================================
-        function editStock(productId) {
-            if (!currentUser || currentUser.role !== 'admin') {
-                showToast('دسترسی غیرمجاز!', '⛔');
-                return;
-            }
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-            const newStock = prompt(`موجودی جدید برای "${product.name}":`, product.stock);
-            if (newStock !== null && !isNaN(newStock) && parseInt(newStock) >= 0) {
-                product.stock = parseInt(newStock);
-                renderAll();
-                showToast('موجودی به‌روز شد', '✅');
-            }
-        }
-
-        function deleteProduct(productId) {
-            if (!currentUser || currentUser.role !== 'admin') {
-                showToast('دسترسی غیرمجاز!', '⛔');
-                return;
-            }
-            if (!confirm('آیا از حذف این محصول مطمئن هستید؟')) return;
-            const index = products.findIndex(p => p.id === productId);
-            if (index > -1) {
-                // Remove from cart if exists
-                cart = cart.filter(item => item.id !== productId);
-                products.splice(index, 1);
-                renderAll();
-                showToast('محصول حذف شد', '🗑️');
-            }
-        }
-
-        // ============================================================
         //  TAB SYSTEM
         // ============================================================
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                // Check admin access
                 if (this.dataset.tab === 'adminPanel' && (!currentUser || currentUser.role !== 'admin')) {
                     showToast('دسترسی غیرمجاز! رمز مدیریت: amirali', '⛔');
                     openAuth();
@@ -1233,7 +1493,7 @@
         });
 
         // ============================================================
-        //  KEYBOARD SHORTCUT: Escape to close auth
+        //  KEYBOARD SHORTCUT
         // ============================================================
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeAuth();
@@ -1242,14 +1502,17 @@
         // ============================================================
         //  INIT
         // ============================================================
-        // Check if admin exists in users, if not create
         if (!users.find(u => u.username === 'admin')) {
             users.push({ username: 'admin', password: 'amirali', email: 'admin@shop.com', role: 'admin' });
             localStorage.setItem('redshop_users', JSON.stringify(users));
         }
+        // Fix: ensure products have ids
+        products.forEach((p, i) => { if (!p.id) p.id = i + 1; });
+        nextId = products.length + 1;
+
         renderAll();
         updateUI();
-        showToast('🔥 به فروشگاه دیزلن قرمز خوش آمدید!', '🔥');
+        setTimeout(() => showToast('🔥 به فروشگاه دیزلن قرمز خوش آمدید!', '🔥'), 300);
     </script>
 
 </body>
